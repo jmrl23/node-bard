@@ -1,0 +1,24 @@
+{
+  "name": "node-bard",
+  "version": "1.0.0",
+  "main": "dist/main.cjs",
+  "type": "module",
+  "author": "Jomariel Gaitera <gaiterajomariel@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild ./src/main.ts --bundle --platform=node --outfile=dist/main.cjs",
+    "pkg:build": "pkg ./dist/main.cjs -t node18-win -o bard.exe --compress GZip",
+    "start": "node ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.0",
+    "esbuild": "^0.17.19",
+    "pkg": "^5.8.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@jmrl23/node-prompt": "^1.0.0",
+    "chalk": "^5.2.0",
+    "googlebard": "^1.0.5"
+  }
+}
