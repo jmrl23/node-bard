@@ -5,10 +5,10 @@ import config from './config.json';
 import chalk from 'chalk';
 
 export class App {
-  private conversationId = randomUUID();
-  private prompt = new Prompt();
+  private readonly conversationId = randomUUID();
+  private readonly prompt = new Prompt();
 
-  private bard = new Bard(config.cookies, {
+  private readonly bard = new Bard(config.cookies, {
     inMemory: true,
   });
 
@@ -27,7 +27,7 @@ export class App {
     );
     const appCommand = await this.isCommand(question);
     if (appCommand) return Promise.resolve('');
-    const response = await this.bard.ask(question);
+    const response = await this.bard.ask(question, this.conversationId);
     return chalk.yellow(response);
   }
 
